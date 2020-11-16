@@ -1,0 +1,53 @@
+library(dplyr)
+library(ggplot2)
+patient <- read.csv('./data/PatientInfo.csv')
+
+summary(patient)
+patient$patient_id <- as.factor(patient$patient_id)
+patient_ko <- patient%>%
+  filter(country == 'Korea')
+summary(patient_ko)
+
+patient_top <- patient_ko[1:100,]
+patient_city <- patient%>%select(c('city','patient_id'))
+ggplot(patient_city,aes(x=city))+geom_bar(stat='count')
+
+plot(patient_top$city,patient_top$patient_id)
+summary(patient_city)
+
+df <- patient_city%>%
+  group_by(city)%>%
+  count()%>%
+  data.frame()
+
+df%>%
+  arrange(-n)
+
+nrow(df)
+
+
+save.image("./RData/Patient_지역별_확진자수_1110.RData")
+
+
+# 지역별 총인구
+
+city <- patient_ko$city
+city <- unique(city)
+city <- data.frame(city)
+city$total <- 0 
+city$female <- 0
+city$male <- 0
+
+
+city[1,]$total <- 587553
+city[1,]$female <- 303438
+city[1,]$male <- 284115
+
+
+city[2,]$total <- 394982
+city[2,]$male <- 195693	
+city[2,]$female <- 199289
+
+
+
+
