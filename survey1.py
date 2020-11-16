@@ -1,3 +1,5 @@
+import crawling
+
 result = 0
 
 print("두개의 설문지가 준비되어 있습니다.",
@@ -58,7 +60,10 @@ while True:
 			print("당신의 마스크는 믿을만한 마스크입니다.")
 		else:
 			print("당신의 마스크는 철통보안 마스크입니다.")
-		
+	
+		a, b = crawling.craw()
+		print("현재 국내 확진자 수: ",a,"\n추가 확진자 수: ",b)
+	
  
 		break;
 	
@@ -130,6 +135,9 @@ while True:
 		else:
 			print("당신의 마스크는 철통보안 마스크입니다.")
 
+
+		a, b = crawling.craw()
+		print("현재 국내 확진자 수: ",a,"\n추가 확진자 수: ",b)
 
 		break;
 
