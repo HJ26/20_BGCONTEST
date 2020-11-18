@@ -4,6 +4,9 @@
 </br>
 
 
+#### (English Version)
+
+
 ## How to use "Sub_Server_OSY"
 
 ##### 1. Download all files from Sub_Server_OSY
@@ -12,6 +15,9 @@
 ##### 4. Run the Main.html.
 </br>
 </br>
+
+
+#### (Korean Version)
 
 
 ## Sub_Server_OSY 사용법
@@ -23,4 +29,4 @@
 </br>
 </br>
 ##### Setteing Example
-![ex_screenshot] (./image/example.png)
+![example](https://user-images.githubusercontent.com/59431387/99539628-cdb54c00-29f1-11eb-9d27-1fb1720ff68f.png)
