@@ -18,4 +18,4 @@
 ##### 4. Main.html 파일을 실행한다.
 
 ###### Setteing Example
-![Alt text](Desktop\example.png)
+![Alt text](C:\Temp\example.png)
