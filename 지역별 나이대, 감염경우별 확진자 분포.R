@@ -1,15 +1,15 @@
+#파일 불러오기
 setwd('C:/R_corona')
-
 patient<-read.csv('PatientInfo.csv')
 
-
+##전반적인 데이터 분포 확인
 #지역에 따른 나이별 확진자 분포 시각화
 library(dplyr)
 CITY_AGE<-patient %>% group_by(city,age) %>% summarise(num=n())%>%arrange(city)
 
 install.packages("treemap")
 library(treemap)
-treemap(CITY_AGE,index=c("city",'age'),vSize = 'num',vColor="age")
+treemap(CITY_AGE,index=c("city",'age'),vSize = 'num',vColor="age",title = "Distribution of confirmed cases by age group by region")
 
 
 #지역에 따른 감염경우별 확진자 분포 시각화
@@ -18,8 +18,11 @@ CITY_infection_case<-patient %>% group_by(city,infection_case) %>% summarise(num
 
 install.packages("treemap")
 library(treemap)
-treemap(CITY_infection_case,index=c("city","infection_case"),vSize = 'num',vColor="age")
+treemap(CITY_infection_case,index=c("city","infection_case"),vSize = 'num',vColor="age",title = "Distribution of confirmed cases by region of infection")
 
+#파일 불러오기
+setwd('C:/R_corona')
+patient<-read.csv('PatientInfo.csv')
 
 #지역별 나이대별 확진 비율
 CITY_AGE_df<-data.frame(CITY_AGE)
@@ -131,7 +134,6 @@ for(i in unique(city_infect_rate$city)){
     )+
     ggtitle(paste( i , c("'s infection case")))
     ggsave(paste( i , c("_infection_case.png")))
-}
 
 
 
