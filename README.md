@@ -27,3 +27,10 @@
 ##### 3. 다운로드한 파일들을 모두 20_BGCONTEST-Sub_Server_OSY폴더 안에 삽입한다.
 ##### 4. Main.html 파일을 실행한다.
 </br>
+</br>
+
+
+#### Set-up Complete Example
+<div>
+<img src="https://user-images.githubusercontent.com/59431387/99540997-a2cbf780-29f3-11eb-9554-5571ca7c72cc.png"></img>
+</div>
