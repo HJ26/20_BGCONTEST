@@ -1,8 +1,8 @@
-# 
+# COVID19 knowledge Test Site Code
 ##### This Branch is the code of a site that tests the coping knowledge of COVID19. To start this site, see the methods below.
 </br>
 </br>
-###### (English version)
+######  (English version)
 
 
 ## How to use "Sub_Server_OSY"
@@ -13,7 +13,7 @@
 ##### 4. Run the Main.html.
 </br>
 </br>
-##### (Korean version) 
+#####  (Korean version) 
 
 ## Sub_Server_OSY 사용법
 
