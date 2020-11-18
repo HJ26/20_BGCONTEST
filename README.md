@@ -24,4 +24,4 @@
 </br>
 </br>
 ##### Setteing Example
-![ex_screenshot] (./img/example.png)
+![ex_screenshot] (./image/example.png)
