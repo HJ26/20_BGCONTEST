@@ -1,5 +1,12 @@
 #library()
 library(dplyr)
+#시계열 분석 필요 라이브러리
+library(TTR)
+library(fpp2)
+library(urca)
+library(forecast)
+library(ggplot2)
+
 #파일 불러오기
 setwd('c:/R_corona/')
 TP <- read.csv("TimeProvince.csv")
@@ -54,12 +61,7 @@ plot.ts(day_ts,xlab='date')
 end(day_ts)
 frequency(day_ts)
 
-#시계열 분석 필요 라이브러리
-library(TTR)
-library(fpp2)
-library(urca)
-library(forecast)
-library(ggplot2)
+
 
 
 #데이터 살펴보기
@@ -69,43 +71,59 @@ autoplot(day_ts) +
   ylab("확진자수")
 
 
-#이벤트1. 신천치 : 2/4~2/21 관측
+####이벤트1. 신천치 : 2/4~2/21 관측
+#데이터 생성 및 잔차 분석, 시계열 정상성 확인
 sincheonji<-window(day_ts,start=c(2020,35),end=c(2020,52))
 ggtsdisplay(sincheonji)
-summary(ur.kpss(sincheonji)) #0.3731
+summary(ur.kpss(sincheonji)) #검정 통계량 : 0.3731 시계열이 정상성을 가짐.
+
 ##모델생성
-auto.arima(sincheonji)
+auto.arima(sincheonji) #ARIMA(0,2,0) 제공함
+
 ##모델학습 및 예측
-sincheonji_120_F<-forecast(Arima(sincheonji,c(1,2,0)),h=7)
+sincheonji_120_F<-forecast(Arima(sincheonji,c(1,2,0)),h=7) 
+          #잔차 분석과 test data와의 rmse차이를 비교하며 ARIMA(p,d,q) 설정.
 autoplot(sincheonji_120_F)+autolayer(sincheonji_120_F$fitted,series = 'fitted')
+
 #적합성진단(잔차분포 확인)
 checkresiduals(sincheonji_120_F) #p=0.3501
+
 ##잔차 자기상관성 확인
-Box.test(sincheonji_120_F$residuals, lag=10, type = "Ljung-Box") #유의확률 0.6691 귀무가설 채택
+Box.test(sincheonji_120_F$residuals, lag=10, type = "Ljung-Box") 
+                        #p-value 0.3063; 잔차의 자기상관성이 없음
 ##test예측
-test1<-window(day_ts,start=c(2020,53),end=c(2020,59))#[1] 229 169 231 144 284 505 571
-accuracy(sincheonji_120_F,test1)
-test1
+
+test1<-window(day_ts,start=c(2020,53),end=c(2020,59))
+                    #[1] 229 169 231 144 284 505 571
+accuracy(sincheonji_120_F,test1) #RMSE: Training 6.920722, Test 93.617783
 
 
 
-#이벤트2. 이태원 : 4/22~5/9 관측
+
+
+####이벤트2. 이태원 : 4/22~5/9 관측
+#데이터 생성 및 잔차 분석, 시계열 정상성 확인
 iteawon<-window(day_ts,start=c(2020,113),end=c(2020,130))
 ggtsdisplay(iteawon)
-summary(ur.kpss(iteawon)) #0.3591
-auto.arima(iteawon)
+summary(ur.kpss(iteawon)) #검정 통계량 : 0.3591 시계열이 정상성을 가짐.
+
 #모델 생성
+auto.arima(iteawon) #ARIMA(0,0,0)제공
+
+##모델학습 및 예측
 iteawon_111_F<-Arima(iteawon,c(1,1,1))
-#forecast로 예측
+      #잔차 분석과 test data와의 rmse차이를 비교하며 ARIMA(p,d,q) 설정.
 iteawon_111_F<-forecast(Arima(iteawon,c(1,1,1)),h=7)
+
 #적합성진단(잔차분포 확인)
-checkresiduals(iteawon_111_F)#적합함 0.2386
+checkresiduals(iteawon_111_F) #p-value 0.3438. 잔차 적합함.
+
 ##잔차 자기상관성 확인
-Box.test(iteawon_111_F$residuals, lag=10, type = "Ljung-Box") #유의확률 0.3009 귀무가설 채택
+Box.test(iteawon_111_F$residuals, lag=10, type = "Ljung-Box") 
+                    #p-value 0.6781; 잔차의 자기상관성이 없음
+
 #그래프 확인
 autoplot(iteawon_111_F)+autolayer(iteawon_111_F$fitted,series = 'fitted')
 test2<-window(day_ts,start=c(2020,131),end=c(2020,137))
-accuracy(iteawon_111_F,test2)
-test2
-
-
+                              #[1] 28 32 26 25 29 26 11
+accuracy(iteawon_111_F,test2) #RMSE: Training 4.330502, Test 9.882367
