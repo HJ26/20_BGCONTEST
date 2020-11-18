@@ -113,7 +113,7 @@ while True:
 		else : print("Q6 review : 자가진단의 항목으로는 발열(37.5도 이상), 기침, 인후통/목아픔, 호흡곤란, 숨가쁨이 있습니다.")
 		if a7.upper() == "X":
 			result += 1
-		else : print("Q7 review : 감염이 되어도 증상이 나타나지 않는 '무증사자'가 있습니다.")
+		else : print("Q7 review : 감염이 되어도 증상이 나타나지 않는 '무증상자'가 있습니다.")
 		if a8.upper() == "O":
 			result += 1
 		else : print("Q8 review : COVID-19는 눈으로도 감염될 수 있습니다.")
@@ -127,7 +127,7 @@ while True:
 		print('\n점수: ',result)
 		if result < 2:
 			print("당신의 마스크는 KF 20 : 구멍뚫린 마스크입니다.",
-				"\n!예방에 주의가 필요합니다!")
+				"\n!위험! 예방에 주의가 필요합니다!")
 		elif result < 4:
 			print("당신의 마스크는 KF 40 : 바람막이 마스크입니다.",
 				"\n바람은 막는 당신, 바이러스도 막아낼 수 있도록 노력해 보아요!")
