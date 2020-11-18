@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>baseline</title>
+</head>
+<body>
+    <div id="page-wrapper">
+        <header id="main-header">
+            <style>
+                div {
+                    text-align: center;
+                }
+            </style>
+            <hgroup>
+                <img src="C:\20_BGCONTEST-Sub_Server_OSY\image\location_benner.png">
+            </hgroup>
+        </header>
+        <nav id="main-navigation">
+            <div class="buttons">
+            </div>
+        </nav>
+        <div id="content">
+            <h2> STEP1. 지역을 선택해주세요 </h2>
+            <section id="main-section">
+                <select onchange="categoryChange(this)">
+                    <option>도/특별시/광역시를 선택해주세요</option>
+                    <option value="a">경기도</option>
+                    <option value="b">강원도</option>
+                    <option value="c">충청북도</option>
+                    <option value="d">충청남도</option>
+                    <option value="e">전라북도</option>
+                    <option value="f">전라남도</option>
+                    <option value="g">경상북도</option>
+                    <option value="h">경상남도</option>
+                    <option value="i">부산광역시</option>
+                    <option value="j">대구광역시</option>
+                    <option value="k">대전광역시</option>
+                    <option value="m">광주광역시</option>
+                    <option value="n">인천광역시</option>
+                    <option value="p">제주특별자치도</option>
+                    <option value="q">세종특별시</option>
+                    <option value="r">서울특별시</option>
+                    <option value="s">울산광역시</option>
+                </select>
+
+                <select id="good">
+                    <option>시/군/구를 선택해주세요</option>
+                </select>
+
+            </section>
+            <script type="text/javascript">
+                function categoryChange(e) {
+                    var good_a = ["안산시", "안성시", "안양시", "부천시", "동두천시", "가평군", "김포시", "고양시", "군포시", "구리시", "과천시", "광주시", "광명시", "하남시", "화성시", "인천시", "남양주시", "오산시", "파주시", "포천시", "평택시", "성남시", "시흥시", "수원시", "의정부시", "의왕시", "양주시", "양평시", "용인시"];
+                    var good_b = ["철원군", "춘천시", "강릉시", "횡성군", "인제군", "삼척시", "속초시", "태백시", "원주시", "영월군"];
+                    var good_c = ["단양군", "음성군", "괴산군", "증평군", "진천군", "옥천군", "청주시", "충주시"];
+                    var good_d = ["부여군", "홍성군", "서천군", "아산시", "천안시", "공주시", "계룡시", "논산시", "서산시"];
+                    var good_e = ["김제시", "군산시", "익산시", "장수군", "전주시"];
+                    var good_f = ["광양시", "경산시", "화순군", "목포시", "무안군", "순천시", "여수시"];
+                    var good_g = ["안동시", "봉화군", "청도군", "청송군", "칠곡군", "김천시", "고령군", "구미시", "군위군", "경주시", "경산시", "문경시", "포항시", "상주시", "성주군", "의성군", "연천군", "연천시", "영덕군", "영주시", "영양군"];
+                    var good_h = ["창녕군", "창원시", "고창군", "거제시", "김해시", "고성군", "함안군", "함양군", "합천군", "진주시", "밀양시", "남해군", "사천시", "산청군", "양산시"];
+                    var good_i = ["기장군", "북구", "부산진구", "동구", "동래구", "강서구", "해운대구", "남구", "사하구", "사상구", "서구", "수영구", "연제구", "기타"];
+                    var good_j = ["북구", "달서구", "달성군", "동구", "이천동", "중구", "경산시", "남구", "산격동", "서구", "수성구", "연천시"];
+                    var good_k = ["대덕구", "동구", "중구", "세종", "서구", "유성구"];
+                    var good_m = ["전체"];
+                    var good_n = ["부평구", "동구", "강화군", "계양구", "중구", "미추홀구", "남동구", "서구"];
+                    var good_p = ["전체"];
+                    var good_q = ["전체"];
+                    var good_r = ["도봉구", "동대문구", "동작구", "은평구", "강북구", "강동구", "강남구", "강서구", "금천구", "구로구", "관악구", "광진구", "종로구", "중구", "중랑구", "목포구", "노원구", "서초구", "서대문구", "성북구", "성동구", "송파구", "연천구", "영등포구", "용산구"];
+                    var good_s = ["울주군", "북구", "동구", "중구", "남구"];
+                    var target = document.getElementById("good");
+
+                    if (e.value == "a") var d = good_a;
+                    else if (e.value == "b") var d = good_b;
+                    else if (e.value == "c") var d = good_c;
+                    else if (e.value == "d") var d = good_d;
+                    else if (e.value == "e") var d = good_e;
+                    else if (e.value == "f") var d = good_f;
+                    else if (e.value == "g") var d = good_g;
+                    else if (e.value == "h") var d = good_h;
+                    else if (e.value == "i") var d = good_i;
+                    else if (e.value == "j") var d = good_j;
+                    else if (e.value == "k") var d = good_k;
+                    else if (e.value == "m") var d = good_m;
+                    else if (e.value == "n") var d = good_n;
+                    else if (e.value == "p") var d = good_p;
+                    else if (e.value == "q") var d = good_q;
+                    else if (e.value == "r") var d = good_r;
+                    else if (e.value == "s") var d = good_s;
+
+                    target.options.length = 0;
+
+                    for (x in d) {
+                        var opt = document.createElement("option");
+                        opt.value = d[x];
+                        opt.innerHTML = d[x];
+                        target.appendChild(opt);
+                    }
+                }
+            </script>
+            <aside id="main-aside">
+                <h2> STEP2. 확진자 분포의 유형을 선택해주세요 </h2>
+                <input type="radio" name="e" /> 나이대별 
+                <input type="radio" name="e" /> 감염경우별
+                <input type="radio" name="e" /> 성별
+                <input type="radio" name="e" /> 요일별
+            </aside>
+        </div>
+        <footer id="main-footer">
+            <br>
+            <br>
+            <button type="button" class="btm_image" id="img_btn" onclick="location.href='infect1.html'"><img src="C:\20_BGCONTEST-Sub_Server_OSY\image\check.png" style="width:81px; height:78px;" style="border:0;"></button>
+            <br>
+            <br>
+            <br>
+            <br>
+            <button type="button" class="btm_image" id="img_btn" onclick="location.href='Main.html'"><img src="C:\20_BGCONTEST-Sub_Server_OSY\image\back.png" style="width:182px; height:94px;" style="border:0;"></button>
+        </footer>
+    </div>
+</body>
+</html>

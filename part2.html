@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+    <meta charset="UTF-8">
+    <TITLE>part2</TITLE>
+</HEAD>
+<body>
+
+    <script type=text/javascript>
+        function showResults() {
+            var numRight = 0;
+            if (document.exf1.q1[document.exf1.q2r.value].checked) numRight++;
+            if (document.exf1.q2[document.exf1.q2r.value].checked) numRight++;
+            if (document.exf1.q3[document.exf1.q1r.value].checked) numRight++;
+            if (document.exf1.q4[document.exf1.q1r.value].checked) numRight++;
+            if (document.exf1.q5[document.exf1.q2r.value].checked) numRight++;
+            if (document.exf1.q6[document.exf1.q1r.value].checked) numRight++;
+            if (document.exf1.q7[document.exf1.q1r.value].checked) numRight++;
+            if (document.exf1.q8[document.exf1.q1r.value].checked) numRight++;
+            if (document.exf1.q9[document.exf1.q1r.value].checked) numRight++;
+            if (document.exf1.q10[document.exf1.q2r.value].checked) numRight++;
+            document.exf1.score.value = numRight;
+        }
+        function init() { document.exf1.score.value = ""; }
+    </script>
+    <header id="main-header">
+        <hgroup>
+            <img src="C:\20_BGCONTEST-Sub_Server_OSY\image\part2.png">
+        </hgroup>
+    </header>
+
+    <form name=exf1>
+        <BR>
+        <B>[문제 1] 대중시설(카페, 음식점, 주점 등)에 방문하였습니까? </B><br>
+        <input type=radio name=q1 value="A" onfocus="init()">1. Y
+        <input type=radio name=q1 value="B" onfocus="init()">2. N
+        <input type=hidden name=q1r value="0">
+        <BR><BR>
+            <B>[문제 2] 사람이 있는 실내에서 마스크를 벗은 적이 있습니까? </B><br>
+        <input type=radio name=q2 value="A" onfocus="init()">1. Y
+        <input type=radio name=q2 value="B" onfocus="init()">2. N
+        <input type=hidden name=q2r value="1">
+        <BR><BR>
+            <B>[문제 3] 음식물 섭취 전 손을 세정 하였습니까? </B><br>
+        <input type=radio name=q3 value="A" onfocus="init()">1. Y
+        <input type=radio name=q3 value="B" onfocus="init()">2. N
+        <input type=hidden name=q3r value="2">
+        <BR><BR>
+            <B>[문제 4] 호흡기를 만지기 전 손을 세정 하였습니까? </B><br>
+        <input type=radio name=q4 value="A" onfocus="init()">1. Y
+        <input type=radio name=q4 value="B" onfocus="init()">2. N
+        <input type=hidden name=q4r value="3">
+        <BR>
+        <BR>
+        <B>[문제 5] 출퇴근(오전6~8시, 오후5~8시) 시간 대중교통(지하철, 버스)를 이용하였습니까? </B><br>
+        <input type=radio name=q5 value="A" onfocus="init()">1. Y
+        <input type=radio name=q5 value="B" onfocus="init()">2. N
+        <input type=hidden name=q5r value="4">
+        <BR><br>
+            <B>[문제 6] 외부에서 자택에 복귀한 후 핸드폰을 소독하였습니까? </B><br>
+        <input type=radio name=q6 value="A" onfocus="init()">1. Y
+        <input type=radio name=q6 value="B" onfocus="init()">2. N
+        <input type=hidden name=q6r value="5">
+        <BR>
+        <BR>
+        <B>[문제 7] 식사 중 다른 사람과 일정거리를 두고 식사를 하였습니까? </B><br>
+        <input type=radio name=q7 value="A" onfocus="init()">1. Y
+        <input type=radio name=q7 value="B" onfocus="init()">2. N
+        <input type=hidden name=q7r value="6">
+        <BR>
+        <BR>
+        <B>[문제 8] 공용 컵이나 식기가 아닌 개인 물품을 사용하였습니까? </B><br>
+        <input type=radio name=q8 value="A" onfocus="init()">1. Y
+        <input type=radio name=q8 value="B" onfocus="init()">2. N
+        <input type=hidden name=q8r value="7">
+        <BR>
+        <BR>
+        <B>[문제 9] 다른사람과의 신체접촉(악수 등) 후 손을 세정 하였습니까? </B><br>
+        <input type=radio name=q9 value="A" onfocus="init()">1. Y
+        <input type=radio name=q9 value="B" onfocus="init()">2. N
+        <input type=hidden name=q9r value="8">
+        <BR>
+        <BR>
+        <B>[문제 10] 노래방,PC방 같은 제한시설을 이용한적 있습니까? </B><br>
+        <input type=radio name=q10 value="A" onfocus="init()">1. Y
+        <input type=radio name=q10 value="B" onfocus="init()">2. N
+        <input type=hidden name=q10r value="9">
+        <BR>
+        <BR>
+
+
+        <input type=button value="점수확인" onclick="showResults()">
+        <BR><br>
+        귀하의 점수는 <input type=text name=score value="" style=width:30> 점 입니다.
+    </form>
+    <footer id="main-footer">
+        <br>
+        <br>
+        <br>
+        <br>
+        <h3 class="notice"> 점수에 해당하는 결과를 클릭하세요. </h3>
+            <img src="C:\20_BGCONTEST-Sub_Server_OSY\image\l1_button.png"  onclick="location.href='l1.html'" style="width:161px; height:161px;">
+            <img src="C:\20_BGCONTEST-Sub_Server_OSY\image\l2_button.png"  onclick="location.href='l2.html'" style="width:161px; height:161px;">
+            <img src="C:\20_BGCONTEST-Sub_Server_OSY\image\l3_button.png"  onclick="location.href='l3.html'" style="width:161px; height:161px;">
+            <img src="C:\20_BGCONTEST-Sub_Server_OSY\image\l4_button.png"  onclick="location.href='l4.html'" style="width:161px; height:161px;">
+            <img src="C:\20_BGCONTEST-Sub_Server_OSY\image\l5_button.png"  onclick="location.href='l5.html'" style="width:161px; height:161px;">
+    </footer>
+</body>
+</HTML>
