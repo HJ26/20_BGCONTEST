@@ -1,5 +1,6 @@
 # COVID19 knowledge Test Site Code
-##### This Branch is the code of a site that tests the coping knowledge of COVID19. To start this site, see the methods below. The mothod is English version and Korean version. The content is the same, so please refer to the language you like.
+##### This Branch contains code and data from the information site regarding COVID19. A site consists of two types : One is the type of knowledge test for COVID19, and the other is the type that checks the distribution of patients by region. The development of the COVID19 knowledge test type has been completed, and the local patients distribution type is now in the final stage of development.
+##### To start this site, see the methods below. The mothod is English version and Korean version. The content is the same, so please refer to the language you like.
 </br>
 </br>
 
